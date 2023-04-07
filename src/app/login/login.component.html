@@ -1,0 +1,12 @@
+<div>
+  <h1>Login</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <p>
+      <input type="text" formControlName="username">
+    </p>
+    <p>
+      <input type="password" formControlName="password">
+    </p>
+    <button type="submit" [disabled]="form.invalid || form.pending">Create</button>
+  </form>
+</div>
