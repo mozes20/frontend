@@ -35,7 +35,7 @@ export class LoginComponent  implements OnInit,OnDestroy {
       localStorage.setItem('token', res.jwt);
       this.userService.getUsers().subscribe(res=>{
         console.log(res)
-        this.router.navigate(['/']);
+        this.router.navigate(['/'])
       })
     })
 

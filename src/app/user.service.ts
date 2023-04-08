@@ -10,6 +10,8 @@ const EVENT_URL = 'http://localhost:8080/user';
 })
 export class UserService {
 
+  error:string = ""
+
   constructor(private requestService: RequestService) { }
 
   getAuthenticate(userDetails:any):Observable<any>{
@@ -25,12 +27,12 @@ export class UserService {
     return this.requestService.get<any>(EVENT_URL, httpOptions);
   }
 
-  getUser(eventId:bigint): Observable<any>{
+  getUser(eventId:number): Observable<any>{
     return this.requestService.get(`${EVENT_URL}/${eventId}`);
   }
 
   createUser(event: any): Observable<any> {
-    return this.requestService.post(`${EVENT_URL}/`, event);
+    return this.requestService.post(`${EVENT_URL}/`, event,{responseType: 'text' as const});
   }
 
   updateUser(event: any): Observable<any> {
@@ -38,13 +40,9 @@ export class UserService {
   }
 
   deleteUser(eventId: number): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
+
     const url = `${EVENT_URL}/${eventId}`;
-    return this.requestService.delete(url, httpOptions);
+    return this.requestService.delete(url, {responseType: 'text' as const});
   }
 
 }

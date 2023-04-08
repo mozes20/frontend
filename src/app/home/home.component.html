@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div>
+  <h1>List of Users</h1>
+  <ul>
+    <li *ngFor="let user of users">{{ user.id }}, {{ user.name }} , {{user.email}} , {{user.username}} , {{user.address}} <button (click)="deleteUser(user.id)">Törlés</button><button (click)="getDetailedUser(user.id)">Részletek</button></li>
+  </ul>
+<button (click)="logout()">Kijelentkeezés</button>
+<app-createuser (createFinished)="userCreated($event)"></app-createuser>
+  <p>UserDetail:</p>
+  <ul>
+    <li *ngFor="let item of this.userDetail | keyvalue">
+      {{item.key}}: {{item.value}}
+    </li>
+  </ul>
+  <p>{{this.errorMessage}}</p>
+</div>

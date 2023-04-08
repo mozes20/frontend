@@ -11,12 +11,14 @@ import {RequestService} from "./request.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing-module/app-routing-module.module";
+import { CreateuserComponent } from './home/createuser/createuser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CreateuserComponent
   ],
   imports: [
     BrowserModule,
