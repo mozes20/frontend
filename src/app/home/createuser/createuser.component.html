@@ -1,0 +1,22 @@
+<form [formGroup]="userCreateform" (ngSubmit)="onSubmit(userCreateform.value)">
+  <p>
+    <input type="text" formControlName="username" placeholder="username" required>
+  </p>
+  <p>
+    <input type="password" formControlName="password" placeholder="password" required>
+  </p>
+  <p>
+    <input type="text" formControlName="name" placeholder="name" required>
+  </p>
+  <p>
+    <input type="email" formControlName="email" placeholder="email" required>
+  </p>
+  <p>
+    <input type="text" formControlName="address" placeholder="address" required>
+  </p>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+
+  <button type="submit" [disabled]="userCreateform.invalid || userCreateform.pending">Create</button>
+
+  <h1>{{this.creationError}}</h1>
+</form>
